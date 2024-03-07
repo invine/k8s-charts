@@ -1,0 +1,11 @@
+image: "elswork/openvpn"
+nodePort: 30242 # Customize if needed
+ingressClass: "ociLB" # Set value from your cluster's configuration if using ingress
+storageClass: "standard" # Customize based on your cluster's storage options
+namespace: "openvpn"
+# nodePort: {{ .Values.nodePort | default 30242 }} # Customize if needed
+# ingressClass: {{ .Values.ingressClass | default "ociLB" }} # Set value from your cluster's configuration if using ingress
+# storageClass: {{ .Values.storageClass | default "standard" }} # Customize based on your cluster's storage options
+
+# Add more configuration options as needed, e.g., for environment variables, resource requests/limits, etc.
+ 

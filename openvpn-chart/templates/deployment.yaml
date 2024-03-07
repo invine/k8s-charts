@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openvpn
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openvpn
+  template:
+    metadata:
+      labels:
+        app: openvpn
+    spec:
+      containers:
+        - name: openvpn
+          image: {{ .Values.image }}
+          ports:
+            - containerPort: 1194
+              protocol: UDP
+              hostPort: 1194
+          volumeMounts:
+            - name: ovpn-data-oracle
+              mountPath: /etc/openvpn
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          securityContext:
+            capabilities:
+              drop: ["all"]
+              add: ["NET_ADMIN"]
+      volumes:
+        - name: ovpn-data-oracle
+          persistentVolumeClaim:
+            claimName: ovpn-data-oracle

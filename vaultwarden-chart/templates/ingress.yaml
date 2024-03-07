@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vaultwarden-ingress
+  namespace: {{ .Values.namespace }}
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /vaultwarden
+            backend:
+              service:
+                name: vaultwarden
+                port:
+                  number: 80
+  # ingressClassName: {{ .Values.ingressClass }}

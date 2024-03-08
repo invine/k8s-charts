@@ -33,7 +33,7 @@ spec:
           securityContext:
             capabilities:
               drop: ["all"]
-              add: ["NET_ADMIN"]
+              add: ["NET_ADMIN","mknod"]
       volumes:
         - name: ovpn-data-oracle
           persistentVolumeClaim:

@@ -8,6 +8,6 @@ spec:
     app: vaultwarden
   type: ClusterIP
   ports:
-    - port: 8081
-      targetPort: 80
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
       protocol: TCP

@@ -8,7 +8,7 @@ spec:
     app: openvpn
   type: NodePort
   ports:
-    - port: 1194
+    - port: {{ .Values.service.port }}
       protocol: UDP
-      targetPort: 1194
+      targetPort: {{ .Values.service.port }}
       nodePort: {{ .Values.nodePort }}

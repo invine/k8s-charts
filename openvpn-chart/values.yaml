@@ -9,6 +9,9 @@ namespace: "openvpn"
 
 # Add more configuration options as needed, e.g., for environment variables, resource requests/limits, etc.
 
+service:
+  port: 1194
+
 ingress:
   enabled: true
   annotations:

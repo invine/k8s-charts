@@ -1,7 +1,6 @@
 image:
   repository: public.ecr.aws/j4w0s0n0/echo
-  # tag: latest
-  tag: a2081194965ad03d61f345df54ae32d57318745b
+  tag: latest
 
 namespace: echo
 

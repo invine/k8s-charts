@@ -18,3 +18,6 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: {{ .Values.service.port }}
+        env:
+        - name: LOG_LEVEL
+          value: {{ .Values.env.log-level }}

@@ -1,8 +1,13 @@
 image:
-  repository: public.ecr.aws/j4w0s0n0/echo
-  tag: latest
+  # repository: public.ecr.aws/j4w0s0n0/echo
+  # tag: latest
+  repository: ghcr.io/invine/echo
+  tag: main
 
 namespace: echo
+
+env:
+  log-level: "debug"
 
 service:
   port: 8080

@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: echo-app
+  name: {{ include "echo-app.fullname" . }}
   namespace: {{ .Values.namespace }}
+  labels: {{ include "echo-app.name" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: echo-app
+      app: {{ include "echo-app.name" . }}
   template:
     metadata:
       labels:
-        app: echo-app
+        app: {{ include "echo-app.name" . }}
     spec:
       containers:
       - name: echo-app
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: {{ .Values.service.port }}
+        - containerPort: {{ .Values.service.targetPort }}
         env:
         - name: LOG_LEVEL
           value: {{ .Values.env.logLevel }}

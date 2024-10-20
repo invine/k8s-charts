@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: {{ include "echo-app.fullname" . }}
   namespace: {{ .Values.namespace }}
-  labels: {{ .Values.name }}
+  labels:  
+    app: {{ .Values.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

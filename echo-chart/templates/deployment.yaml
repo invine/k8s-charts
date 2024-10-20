@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: {{ include "echo-app.fullname" . }}
   namespace: {{ .Values.namespace }}
-  labels: {{ include "echo-app.name" . }}
+  labels: {{ .Values.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "echo-app.name" . }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
-        app: {{ include "echo-app.name" . }}
+        app: {{ .Values.name }}
     spec:
       containers:
       - name: echo-app

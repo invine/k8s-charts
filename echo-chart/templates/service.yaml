@@ -4,11 +4,11 @@ metadata:
   name: {{ include "echo-app.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ include "echo-app.name" . }}
+    app: {{ .Values.name }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: {{ include "echo-app.name" . }}
+    app: {{ .Values.name }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}

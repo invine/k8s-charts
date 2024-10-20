@@ -5,15 +5,12 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.name }}
+  annotations:
+    {{- range $key, $value := .Values.service.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
 spec:
   type: {{ .Values.service.type }}
-  annotations:
-    service.beta.kubernetes.io/oci-load-balancer-shape: {{ .Values.service.annotations.oci-load-balancer-shape }}
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: {{ .Values.service.annotations.oci-load-balancer-shape-flex-max }}
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: {{ .Values.service.annotations.oci-load-balancer-shape-flex-min }}
-    # {{- range $key, $value := .Values.service.annotations }}
-    # {{ $key }}: {{ $value | quote }}
-    # {{- end }}
   selector:
     app: {{ .Values.name }}
   ports:

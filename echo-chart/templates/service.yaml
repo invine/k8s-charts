@@ -8,7 +8,9 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   annotations:
-    {{ .Values.service.annotations }}
+    {{- range $key, $value := .Values.service.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
   selector:
     app: {{ .Values.name }}
   ports:

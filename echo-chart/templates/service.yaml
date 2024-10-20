@@ -8,9 +8,12 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   annotations:
-    {{- range $key, $value := .Values.service.annotations }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
+    service.beta.kubernetes.io/oci-load-balancer-shape: {{ .Values.service.annotations.service.beta.kubernetes.io/oci-load-balancer-shape }}
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: {{ .Values.service.annotations.service.beta.kubernetes.io/oci-load-balancer-shape-flex-max }}
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: {{ .Values.service.annotations.service.beta.kubernetes.io/oci-load-balancer-shape-flex-min }}
+    # {{- range $key, $value := .Values.service.annotations }}
+    # {{ $key }}: {{ $value | quote }}
+    # {{- end }}
   selector:
     app: {{ .Values.name }}
   ports:

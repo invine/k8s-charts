@@ -21,7 +21,7 @@ service:
   targetPort: 8080
   ingress:
     ingressClassName: nginx
-    host: local
+    host: echo.sample.com
     path: /echo
     backend:
       service: echo-service

@@ -12,11 +12,11 @@ env:
   logLevel: "debug"
 
 service:
-  type: LoadBalancer
-  annotations:
-    service.beta.kubernetes.io/oci-load-balancer-shape: flexible
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: 10
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: 10
+  type: ClusterIP
+  # annotations:
+  #   service.beta.kubernetes.io/oci-load-balancer-shape: flexible
+  #   service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: 10
+  #   service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: 10
   port: 80
   targetPort: 8080
   ingress:

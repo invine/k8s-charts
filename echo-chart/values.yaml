@@ -19,6 +19,10 @@ service:
     service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: 10
   port: 80
   targetPort: 8080
+  ingress:
+    path: /echo
+    backend:
+      service: echo-service
 # ingress:
 #   enabled: true
 #   annotations:

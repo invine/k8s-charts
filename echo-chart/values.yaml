@@ -25,6 +25,11 @@ service:
     path: /echo
     backend:
       service: echo-service
+    issuer: letsencrypt-staging
+# service:
+#   type: ClusterIP
+#   port: 80
+#   targetPort: 8080
 # ingress:
 #   enabled: true
 #   annotations:

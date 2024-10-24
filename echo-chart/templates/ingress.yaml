@@ -5,12 +5,13 @@ metadata:
   namespace: {{ .Values.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: {{ .Values.service.ingress.issuer }}
 spec:
   ingressClassName: {{ .Values.service.ingress.ingressClassName }}
   tls:
   - hosts:
     - {{ .Values.service.ingress.host }}
-    secretName: {{ .Values.name }}-tls
+    secretName: {{ .Values.name }}-2048-tls
   rules:
   - host: {{ .Values.service.ingress.host }}
     http:

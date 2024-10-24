@@ -13,7 +13,7 @@ spec:
   tls:
   - hosts:
     - {{ .Values.service.ingress.host }}
-    secretName: {{ .Values.name }}-2048-tls
+    secretName: {{ .Values.name }}-tls
   rules:
   - host: {{ .Values.service.ingress.host }}
     http:

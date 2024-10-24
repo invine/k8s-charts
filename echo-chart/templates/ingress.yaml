@@ -3,12 +3,14 @@ kind: Ingress
 metadata:
   name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: {{ .Values.service.ingress.ingressClassName }}
   tls:
   - hosts:
     - {{ .Values.service.ingress.host }}
-    secretName: {{ .Values.name }}
+    secretName: {{ .Values.name }}-tls
   rules:
   - host: {{ .Values.service.ingress.host }}
     http:

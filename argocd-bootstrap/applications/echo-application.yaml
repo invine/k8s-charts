@@ -1,0 +1,25 @@
+apiVersion: v1
+items:
+  - apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: echo-app
+      namespace: argocd
+    spec:
+      destination:
+        namespace: echo
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        helm:
+          parameters:
+            - name: service.ingress.host
+              value: echo.everk8s.duckdns.org
+            - name: service.ingress.path
+              value: /
+        path: echo-chart
+        repoURL: https://github.com/invine/k8s-charts
+        targetRevision: main
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

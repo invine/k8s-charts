@@ -5,6 +5,10 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   ingressClassName: {{ .Values.service.ingress.ingressClassName }}
+  tls:
+  - hosts:
+    - {{ .Values.service.ingress.host }}
+    secretName: {{ .Values.name }}
   rules:
   - host: {{ .Values.service.ingress.host }}
     http:

@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vaultwarden
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vaultwarden
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
-        app: vaultwarden
+        app: {{ .Values.name }}
     spec:
       containers:
-        - name: vaultwarden
-          image: {{ .Values.image }}
+        - name: {{ .Values.name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
               # hostPort: 80
           volumeMounts:
-            - name: vaultwarden-data
+            - name: {{ .Values.name }}
               mountPath: /data/
           resources:
             requests:
@@ -31,6 +31,6 @@ spec:
               memory: "256Mi"
               cpu: "200m"
       volumes:
-        - name: vaultwarden-data
+        - name: {{ .Values.name }}
           persistentVolumeClaim:
-            claimName: vaultwarden-data
+            claimName: {{ .Values.name }}

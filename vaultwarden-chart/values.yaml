@@ -1,21 +1,17 @@
-image: "vaultwarden/server:latest"
-namespace: "vaultwarden"
+image:
+  repository: vaultwarden/server
+  tag: latest
+namespace: vaultwarden
+name: vaultwarden
 
 service:
-  port: 8081
+  type: ClusterIP
+  port: 80
   targetPort: 80
-
-ingress:
-  enabled: true
-  annotations:
-    # Add relevant annotations here. For example,
-    # kubernetes.io/ingress.class: your-ingress-class
-  # hosts:
-  #   - host: k8s.evernest.duckdns.org # Replace with your desired hostname
-  #     paths:
-  #       - path: /echo
-  #         backend:
-  #           service: echo-service
-  #           port: service.port
-  host: vaultwarden.evercloud.duckdns.org # Replace with your desired hostname
-  path: /
+  ingress:
+    ingressClassName: nginx
+    host: vaultwarden.example.com
+    path: /
+    backend:
+      service: vaultwarden
+    issuer: letsencrypt-staging

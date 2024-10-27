@@ -12,6 +12,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.name }}
+      annotations:
+        backup.velero.io/backup-volumes: {{ .Values.name }}
     spec:
       containers:
         - name: {{ .Values.name }}

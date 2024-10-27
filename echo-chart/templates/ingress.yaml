@@ -11,7 +11,7 @@ metadata:
         return 301 $scheme://$host$request_uri;
       }
     cert-manager.io/cluster-issuer: {{ .Values.service.ingress.issuer }}
-    acme.cert-manager.io/http01-edit-in-place: "true" # important to merge with existing ingress resource into a single nginx config file
+    # acme.cert-manager.io/http01-edit-in-place: "true" # important to merge with existing ingress resource into a single nginx config file
 spec:
   ingressClassName: {{ .Values.service.ingress.ingressClassName }}
   tls:

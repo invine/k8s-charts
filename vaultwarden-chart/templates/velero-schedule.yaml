@@ -16,5 +16,5 @@ spec:
     # includedResources:
     #   {{ toYaml .Values.backup.includedResources | indent 8 }}
     snapshotVolumes: {{ .Values.backup.snapshotVolumes | default true }}
-    volumeSnapshotLocations:
-      - {{ .Values.backup.volumeSnapshotLocation }}
+    # volumeSnapshotLocations:
+    #   - {{ .Values.backup.volumeSnapshotLocation }}

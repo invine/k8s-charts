@@ -15,6 +15,8 @@ spec:
           value: echo.everk8s.duckdns.org
         - name: service.ingress.path
           value: /
+        - name: service.ingress.issuer
+          value: letsencrypt-prod
     path: echo-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main

@@ -1,0 +1,15 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: {{ .Values.name }}-backup-schedule
+  namespace: {{ .Values.backup.veleroNamespace | default "velero" }}
+  labels:
+    app: {{ .Values.name }}
+spec:
+  schedule: {{ .Values.backup.schedule }}
+  template:
+    ttl: {{ .Values.backup.ttl | default "168h0m0s" }}
+    storageLocation: {{ .Values.backup.storageLocation | default "default" }}
+    includedNamespaces:
+      - {{ .Values.namespace }}
+    snapshotVolumes: {{ .Values.backup.snapshotVolumes | default true }}

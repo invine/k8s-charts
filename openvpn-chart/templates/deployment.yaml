@@ -1,27 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: openvpn
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: openvpn
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
-        app: openvpn
+        app: {{ .Values.name }}
+      annotations:
+        backup.velero.io/backup-volumes: {{ .Values.name }}
     spec:
       containers:
-        - name: openvpn
-          image: {{ .Values.image }}
+        - name: {{ .Values.name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.service.port }}
               protocol: UDP
               hostPort: {{ .Values.service.port }}
           volumeMounts:
-            - name: ovpn-data-oracle
+            - name: {{ .Values.name }}
               mountPath: /etc/openvpn
           resources:
             requests:
@@ -32,9 +34,8 @@ spec:
               cpu: "200m"
           securityContext:
             capabilities:
-              # drop: ["all"]
               add: ["NET_ADMIN"]
       volumes:
-        - name: ovpn-data-oracle
+        - name: {{ .Values.name }}
           persistentVolumeClaim:
-            claimName: ovpn-data-oracle
+            claimName: {{ .Values.name }}

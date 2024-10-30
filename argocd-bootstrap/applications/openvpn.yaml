@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openvpn
+  namespace: argocd
+spec:
+  destination:
+    namespace: openvpn
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: image.tag
+          value: 2.6.8
+    path: openvpn-chart
+    repoURL: https://github.com/invine/k8s-charts
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

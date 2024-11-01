@@ -1,5 +1,5 @@
 # Values for Shellinabox
-ne: shellinabox
+name: shellinabox
 replicaCount: 1
 image:
   repository: sspreitzer/shellinabox

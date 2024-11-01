@@ -23,6 +23,14 @@ spec:
               value: {{ .Values.env.SIAB_PASSWORD }}
             - name: SIAB_SUDO
               value: {{ .Values.env.SIAB_SUDO }}
+            - name: SIAB_GROUPID
+              value: 1010
+            - name: SIAB_USERID
+              value: 1010
+            - name: SIAB_GROUP
+              value: shellinabox
+            - name: SIAB_USER
+              value: shellinabox
           ports:
             - containerPort: 4200
               name: http

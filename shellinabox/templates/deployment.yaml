@@ -31,6 +31,8 @@ spec:
               value: {{ .Values.env.SIAB_GROUP }}
             - name: SIAB_USER
               value: {{ .Values.env.SIAB_USER }}
+            - name: SIAB_SSL
+              value: {{ .Values.env.SIAB_SSL }}
           ports:
             - containerPort: 4200
               name: http

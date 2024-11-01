@@ -36,3 +36,4 @@ env:
   SIAB_USERID: "1010"
   SIAB_GROUP: "shellinabox"
   SIAB_GROUPID: "1010"
+  SIAB_SSL: "true"

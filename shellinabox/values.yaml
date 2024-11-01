@@ -8,6 +8,13 @@ image:
 service:
   type: ClusterIP
   port: 4200
+  ingress:
+    ingressClassName: nginx
+    host: shellinabox.example.com
+    path: /
+    backend:
+      service: echo-service
+    issuer: letsencrypt-prod
 ingress:
   enabled: true
   annotations:

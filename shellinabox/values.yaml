@@ -32,3 +32,7 @@ ingress:
 env:
   SIAB_PASSWORD: "xyz678abc"
   SIAB_SUDO: "true"
+  SIAB_USER: "shellinabox"
+  SIAB_USERID: "1010"
+  SIAB_GROUP: "shellinabox"
+  SIAB_GROUPID: "1010"

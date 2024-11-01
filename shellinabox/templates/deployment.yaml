@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "shellinabox.fullname" . }}
+  labels:
+    app: {{ include "shellinabox.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "shellinabox.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "shellinabox.name" . }}
+    spec:
+      containers:
+        - name: shellinabox
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: SIAB_PASSWORD
+              value: {{ .Values.env.SIAB_PASSWORD }}
+            - name: SIAB_SUDO
+              value: {{ .Values.env.SIAB_SUDO }}
+          ports:
+            - containerPort: 4200
+              name: http

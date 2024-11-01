@@ -1,0 +1,26 @@
+# Values for Shellinabox
+replicaCount: 1
+image:
+  repository: sspreitzer/shellinabox
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 4200
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" # Modify if needed
+  hosts:
+    - host: shellinabox.example.com # Change to your domain
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - shellinabox.example.com # Change to your domain
+      secretName: shellinabox-tls # Name of the secret for TLS
+env:
+  SIAB_PASSWORD: "xyz678abc"
+  SIAB_SUDO: "true"

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: shellinabox
+description: Helm chart for Shellinabox
+version: 1.0.0
+appVersion: "latest"

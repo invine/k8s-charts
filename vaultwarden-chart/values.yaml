@@ -21,3 +21,5 @@ backup:
   schedule: "0 0 * * *" # Every day
   ttl: "168h0m0s" # 1 hour
   snapshotVolumes: false
+
+storageClass: longhorn

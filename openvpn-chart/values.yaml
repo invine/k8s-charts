@@ -13,4 +13,4 @@ backup:
   ttl: "168h0m0s" # 1 hour
   snapshotVolumes: false
 
-classStorage: "longhorn"
+storageClass: "longhorn"

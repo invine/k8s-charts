@@ -11,6 +11,8 @@ spec:
   source:
     helm:
       parameters:
+        - name: backup.ttl
+          value: "720h0m0s"
         - name: service.ingress.host
           value: echo.everk8s.duckdns.org
         - name: service.ingress.path

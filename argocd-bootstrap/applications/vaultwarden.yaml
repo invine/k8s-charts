@@ -17,6 +17,8 @@ spec:
           value: 1.32.3
         - name: service.ingress.issuer
           value: letsencrypt-prod
+        - name: backup.ttl
+          value: "720h0m0s"
     path: vaultwarden-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main

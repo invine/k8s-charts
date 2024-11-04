@@ -13,6 +13,8 @@ spec:
       parameters:
         - name: image.tag
           value: 2.6.8
+        - name: backup.ttl
+          value: "720h0m0s"
     path: openvpn-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main

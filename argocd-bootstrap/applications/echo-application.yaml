@@ -20,7 +20,7 @@ spec:
         - name: service.ingress.issuer
           value: letsencrypt-prod
         - name: image.tag
-          value: latest
+          value: v0.0.3
     path: echo-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main

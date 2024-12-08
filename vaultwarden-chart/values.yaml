@@ -24,4 +24,7 @@ backup:
 
 storageClass: longhorn
 
-adminToken:
+adminTokenSecret:
+  enabled: false
+  name:
+  key:

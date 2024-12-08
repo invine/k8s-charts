@@ -32,10 +32,13 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-          {{- if .Values.adminToken }}
+          {{- if .Values.adminTokenSecret.enabled }}
           env:
           - name: ADMIN_TOKEN
-            value: "{{ .Values.adminToken }}"
+            valueFrom:
+              secretKeyRef:
+                name: "{{ .Values.adminTokenSecret.name }}"
+                key: "{{ .Values.adminTokenSecret.key }}"
           {{- end }}
       volumes:
         - name: {{ .Values.name }}

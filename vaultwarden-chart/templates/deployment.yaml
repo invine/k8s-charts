@@ -32,6 +32,11 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
+          {{- if .Values.adminToken }}
+          env:
+          - name: ADMIN_TOKEN
+            value: "{{ .Values.adminToken }}"
+          {{- end }}
       volumes:
         - name: {{ .Values.name }}
           persistentVolumeClaim:

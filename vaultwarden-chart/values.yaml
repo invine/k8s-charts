@@ -23,3 +23,5 @@ backup:
   snapshotVolumes: false
 
 storageClass: longhorn
+
+adminToken:

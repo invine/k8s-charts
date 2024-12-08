@@ -32,7 +32,7 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-          {{- if .Values.adminTokenSecret.enabled }}
+          {{- if .Values.adminTokenSecret.enable }}
           env:
           - name: ADMIN_TOKEN
             valueFrom:

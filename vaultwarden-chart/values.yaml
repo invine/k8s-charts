@@ -25,6 +25,6 @@ backup:
 storageClass: longhorn
 
 adminTokenSecret:
-  enabled: false
+  enable: false
   name: admin-token-secret
   key: key

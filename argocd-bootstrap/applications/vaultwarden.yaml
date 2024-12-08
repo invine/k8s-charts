@@ -20,7 +20,7 @@ spec:
         - name: backup.ttl
           value: "720h0m0s"
         - name: adminTokenSecret.enable
-          value: true
+          value: "true"
     path: vaultwarden-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main

@@ -30,5 +30,7 @@ spec:
   ignoreDifferences:
     - group: velero.io
       kind: Backup
+      namespace: velero
     - group: velero.io
       kind: Restore
+      namespace: velero

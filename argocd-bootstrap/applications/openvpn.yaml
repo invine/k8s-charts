@@ -19,3 +19,8 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+  - group: velero.io
+    kind: Backup
+  - group: velero.io
+    kind: Restore

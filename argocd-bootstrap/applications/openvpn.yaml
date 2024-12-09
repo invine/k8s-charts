@@ -21,10 +21,3 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-  ignoreDifferences:
-    - group: velero.io
-      kind: Backup
-      namespace: velero
-    - group: velero.io
-      kind: Restore
-      namespace: velero

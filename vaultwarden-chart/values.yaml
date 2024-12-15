@@ -28,3 +28,6 @@ adminTokenSecret:
   enable: false
   name: admin-token-secret
   key: key
+
+strategy:
+  type: Recreate

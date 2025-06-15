@@ -14,7 +14,7 @@ spec:
         - name: service.ingress.host
           value: vaultwarden.everk8s.duckdns.org
         - name: image.tag
-          value: 1.33.2
+          value: 1.34.1
         - name: service.ingress.issuer
           value: letsencrypt-prod
         - name: backup.ttl

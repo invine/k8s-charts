@@ -14,3 +14,6 @@ backup:
   snapshotVolumes: false
 
 storageClass: "longhorn"
+
+strategy:
+  type: Recreate

@@ -1,5 +1,5 @@
 image:
-  repository: vaultwarden/server
+  repository: docker.io/vaultwarden/server
   tag: latest
 namespace: vaultwarden
 name: vaultwarden

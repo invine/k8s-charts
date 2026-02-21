@@ -1,5 +1,5 @@
 image:
-  repository: elswork/openvpn
+  repository: docker.io/elswork/openvpn
   tag: latest
 namespace: openvpn
 name: ovpn

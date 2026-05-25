@@ -1,5 +1,8 @@
 namespace: staging
 
+imagePullSecrets:
+  - name: ghcr-pull-secret
+
 images:
   backend:
     repository: ghcr.io/invine/my-medusa-store-backend

@@ -54,8 +54,8 @@ backend:
       memory: 1Gi
   uploads:
     enabled: true
-    size: 5Gi
-    mountPath: /server/apps/backend/uploads
+    size: 1Gi
+    mountPath: /server/apps/backend/.medusa/server/uploads
 
 worker:
   enabled: true

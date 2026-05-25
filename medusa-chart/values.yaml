@@ -113,6 +113,7 @@ redis:
 migrations:
   enabled: true
   hook: true
+  setupUaeRegion: true
   hookDeletePolicy: BeforeHookCreation,HookSucceeded
   backoffLimit: 3
   activeDeadlineSeconds: 900

@@ -7,9 +7,11 @@ images:
   backend:
     repository: ghcr.io/invine/my-medusa-store-backend
     tag: staging
+    pullPolicy: Always
   storefront:
     repository: ghcr.io/invine/my-medusa-store-storefront
     tag: staging
+    pullPolicy: Always
 
 secrets:
   create: false

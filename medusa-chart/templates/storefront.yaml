@@ -87,6 +87,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "medusa.fullname" . }}-config
                   key: NEXT_PUBLIC_STRIPE_KEY
+            - name: MEDUSA_PUBLISHABLE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "medusa.secretName" . }}
+                  key: NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
             - name: NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
               valueFrom:
                 secretKeyRef:

@@ -13,11 +13,11 @@ images:
     tag: staging
     pullPolicy: IfNotPresent
   postgres:
-    repository: postgres
+    repository: docker.io/library/postgres
     tag: 16-alpine
     pullPolicy: IfNotPresent
   redis:
-    repository: redis
+    repository: docker.io/library/redis
     tag: 7-alpine
     pullPolicy: IfNotPresent
 

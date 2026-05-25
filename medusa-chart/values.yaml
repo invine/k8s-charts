@@ -85,8 +85,9 @@ postgres:
   database: medusa_dtc
   username: medusa
   port: 5432
+  pgdata: /var/lib/postgresql/data/pgdata
   storage:
-    size: 10Gi
+    size: 2Gi
   resources:
     requests:
       cpu: 100m
@@ -100,7 +101,7 @@ redis:
   name: medusa-redis
   port: 6379
   storage:
-    size: 2Gi
+    size: 1Gi
   resources:
     requests:
       cpu: 50m

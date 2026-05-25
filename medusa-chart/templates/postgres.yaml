@@ -66,6 +66,8 @@ spec:
                 secretKeyRef:
                   name: {{ include "medusa.secretName" . }}
                   key: POSTGRES_PASSWORD
+            - name: PGDATA
+              value: {{ .Values.postgres.pgdata | quote }}
           readinessProbe:
             exec:
               command:

@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/invine/my-medusa-store.git
+    repoURL: https://github.com/invine/my-medusa-store
     targetRevision: main
     path: charts/medusa
     helm:

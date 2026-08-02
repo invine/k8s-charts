@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: application-workloads
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Manually synchronized application workloads in dedicated namespaces
+  sourceRepos:
+    - https://github.com/invine/k8s-charts
+    - https://github.com/invine/my-medusa-store
+  destinations:
+    - namespace: echo
+      server: https://kubernetes.default.svc
+    - namespace: openvpn
+      server: https://kubernetes.default.svc
+    - namespace: staging
+      server: https://kubernetes.default.svc
+    - namespace: vaultwarden
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist: []

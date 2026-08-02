@@ -3,11 +3,13 @@ kind: Application
 metadata:
   name: vaultwarden
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
     namespace: vaultwarden
     server: https://kubernetes.default.svc
-  project: default
+  project: application-workloads
   source:
     helm:
       parameters:
@@ -24,6 +26,3 @@ spec:
     path: vaultwarden-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true

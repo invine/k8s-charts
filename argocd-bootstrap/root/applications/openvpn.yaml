@@ -3,11 +3,13 @@ kind: Application
 metadata:
   name: openvpn
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
     namespace: openvpn
     server: https://kubernetes.default.svc
-  project: default
+  project: application-workloads
   source:
     helm:
       parameters:
@@ -18,6 +20,3 @@ spec:
     path: openvpn-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true

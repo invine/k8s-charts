@@ -3,11 +3,13 @@ kind: Application
 metadata:
   name: medusa-staging
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
     namespace: staging
     server: https://kubernetes.default.svc
-  project: default
+  project: application-workloads
   source:
     repoURL: https://github.com/invine/my-medusa-store
     targetRevision: main
@@ -15,6 +17,3 @@ spec:
     helm:
       valueFiles:
         - values-staging.yaml
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true

@@ -11,7 +11,8 @@ namespace: echo
 env:
   logLevel: "debug"
 
-# F5 NGINX supplies dedicated identity headers from OCI PROXY protocol.
+# F5 NGINX supplies dedicated identity headers from OCI PROXY protocol through
+# a location snippet. Enable F5 snippets before this Ingress is synchronized.
 # Enable only with an image supporting TRUSTED_PROXY_CIDRS (v0.0.4 or later).
 clientIdentity:
   enabled: false

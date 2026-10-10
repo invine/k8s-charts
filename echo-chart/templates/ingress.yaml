@@ -4,6 +4,10 @@ metadata:
   name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
   annotations:
+    {{- if .Values.clientIdentity.enabled }}
+    # Empty PROXY metadata removes these headers, including caller-supplied values.
+    nginx.org/proxy-set-headers: "X-Echo-Client-IP: $proxy_protocol_addr,X-Echo-Client-Port: $proxy_protocol_port"
+    {{- end }}
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: {{ .Values.service.ingress.issuer }}
     acme.cert-manager.io/http01-edit-in-place: "true" # important to merge with existing ingress resource into a single nginx config file

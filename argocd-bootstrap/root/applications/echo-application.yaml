@@ -22,7 +22,12 @@ spec:
         - name: service.ingress.issuer
           value: letsencrypt-prod
         - name: image.tag
-          value: v0.0.3
+          # Publish and verify this immutable release before merging/syncing.
+          value: v0.0.4
+        - name: clientIdentity.enabled
+          value: "true"
+        - name: clientIdentity.trustedProxyCidrs[0]
+          value: "10.0.4.0/22"
     path: echo-chart
     repoURL: https://github.com/invine/k8s-charts
     targetRevision: main
